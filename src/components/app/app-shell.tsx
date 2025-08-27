@@ -1,8 +1,8 @@
 import type * as React from "react";
 
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "./app-sidebar";
 import { Container } from "../layout";
+import { AppSidebar } from "./app-sidebar";
 
 type AppShellProps = {
   header: React.ReactNode;

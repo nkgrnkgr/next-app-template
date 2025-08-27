@@ -8,7 +8,7 @@
 ## コンポーネント分類
 
 - `components/ui/`: shadcn/ui由来のコンポーネント。外部から導入したもの。
-- `components/layout/`: 汎用レイアウトプリミティブ（Stack, Flex, Center等）
+- `components/layout/`: 汎用レイアウトプリミティブ（Flex, Stack, Inline, Center, Container, Spacer, Inset）
 - `components/typography/`: 汎用テキストプリミティブ（Heading, Text等）
 - `components/icons/`: アイコンシステム
 - `components/app/`: アプリケーション固有だが再利用可能な「ある程度のかたまり」を持つUIコンポーネント
