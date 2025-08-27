@@ -132,6 +132,6 @@
   }
   body {
     /* biome-ignore lint/css/noUnknownAtRules: Tailwind apply */
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AppShell, Header } from "@/components/app";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="antialiased">{children}</body>
+      <body>
+        <AppShell
+          header={<Header title="My CRUD App" rightSlot={<SidebarTrigger />} />}
+        >
+          {children}
+        </AppShell>
+      </body>
     </html>
   );
 }
