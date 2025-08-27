@@ -2,7 +2,6 @@ import type * as React from "react";
 
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "./app-sidebar";
-import { Container } from "@/components/layout";
 
 type AppShellProps = {
   header: React.ReactNode;
@@ -12,13 +11,13 @@ type AppShellProps = {
 function AppShell({ header, children }: AppShellProps) {
   return (
     <SidebarProvider>
-      <div className="min-h-dvh">
+      <div className="min-h-dvh flex">
         <AppSidebar />
-        <div className="pl-56">
+        {/* Sidebar は fixed なので、同じ幅のスペーサーでレイアウトを確保する */}
+        <div className="w-56 shrink-0" aria-hidden />
+        <div className="flex-1">
           {header}
-          <main>
-            <Container>{children}</Container>
-          </main>
+          <main>{children}</main>
         </div>
       </div>
     </SidebarProvider>
