@@ -70,7 +70,9 @@ function Sidebar({
       data-open={open}
       className={cn(
         "bg-sidebar text-sidebar-foreground border-sidebar-border fixed inset-y-0 left-0 z-40 border-r",
-        "w-56 data-[collapsible=icon]:w-16 transition-[width] duration-200",
+        "group",
+        // 開閉状態に応じて幅を切り替え（閉時はアイコン幅）
+        "data-[open=true]:w-56 data-[open=false]:w-16 transition-[width] duration-200",
         className,
       )}
       {...props}
@@ -114,7 +116,11 @@ function SidebarGroupLabel({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("px-2 text-xs text-muted-foreground", className)}
+      className={cn(
+        "px-2 text-xs text-muted-foreground",
+        "group-data-[open=false]:hidden",
+        className,
+      )}
       {...props}
     />
   );
@@ -159,6 +165,7 @@ function SidebarMenuButton({
     <Comp
       className={cn(
         "flex w-full items-center gap-2 rounded-md px-2 py-2",
+        "group-data-[open=false]:justify-center group-data-[open=false]:gap-0",
         "text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
         className,
       )}

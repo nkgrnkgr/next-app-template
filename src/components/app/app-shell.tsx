@@ -1,6 +1,9 @@
+"use client";
+
 import type * as React from "react";
 
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, useSidebar } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 import { Container } from "../layout";
 import { AppSidebar } from "./app-sidebar";
 
@@ -14,8 +17,8 @@ function AppShell({ header, children }: AppShellProps) {
     <SidebarProvider>
       <div className="min-h-dvh flex">
         <AppSidebar />
-        {/* Sidebar は fixed なので、同じ幅のスペーサーでレイアウトを確保する */}
-        <div className="w-56 shrink-0" aria-hidden />
+        {/* Sidebar は fixed なので、開閉状態に合わせた幅のスペーサーでレイアウトを確保する */}
+        <SidebarSpacer />
         <div className="flex-1">
           {header}
           <main>
@@ -28,3 +31,16 @@ function AppShell({ header, children }: AppShellProps) {
 }
 
 export { AppShell };
+
+function SidebarSpacer() {
+  const { open } = useSidebar();
+  return (
+    <div
+      aria-hidden
+      className={cn(
+        "shrink-0 transition-[width] duration-200",
+        open ? "w-56" : "w-16",
+      )}
+    />
+  );
+}

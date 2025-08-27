@@ -18,7 +18,9 @@ function Header({ title = "Dashboard", rightSlot, className }: HeaderProps) {
             <Icon name="home" decorative />
             <H4>{title}</H4>
           </Inline>
-          <div className="flex items-center gap-2">{rightSlot}</div>
+          <Inline align="center" gap="sm">
+            {rightSlot}
+          </Inline>
         </Inline>
       </div>
     </header>

@@ -35,7 +35,9 @@ function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
                       <Icon name={item.icon} decorative />
-                      <span>{item.title}</span>
+                      <span className="group-data-[open=false]:hidden">
+                        {item.title}
+                      </span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
